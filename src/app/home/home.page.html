@@ -1,14 +1,27 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content>
-  <div class="ion-padding">
-    The world is your oyster.
-    <p>If you get lost, the <a target="_blank" rel="noopener" href="https://ionicframework.com/docs/">docs</a> will be your guide.</p>
-  </div>
+<ion-content padding>
+  <ng-container *ngIf="isLightOn; else isOff">
+    <div class="row__center">
+      <div class="text-center" (click)="lightOff()">
+        <img src="assets/light_circle.png">
+        <ion-fab vertical="center" horizontal="center" slot="fixed">
+          <ion-fab-button>
+            <ion-icon class="light__icon" name="flashlight"></ion-icon>
+          </ion-fab-button>
+        </ion-fab>
+      </div>
+    </div>
+  </ng-container>
+  
+  <ng-template #isOff>
+    <div class="row__center">
+      <div class="text-center" (click)="lightOn()">
+        <img src="assets/dark_circle.png">
+        <ion-fab vertical="center" horizontal="center" slot="fixed">
+          <ion-fab-button class="dark__icon">
+            <ion-icon class="dark__icon" name="flashlight"></ion-icon>
+          </ion-fab-button>
+        </ion-fab>
+      </div>
+    </div>
+  </ng-template>
 </ion-content>
